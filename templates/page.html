@@ -347,15 +347,15 @@
     <div style="background-color: rgb(163, 63, 31);"></div>
   </div>
   <div id="mainmenu" style="grid-column:2;">
-    <a href="{{ url_for('index') }}">System Home</a>
-    <a href="{{ url_for('about') }}">About the system</a>
-    <a href="{{ url_for('sparql') }}">SPARQL Endpoint</a>
+    <a href="{{ url_for("index") }}">System Home</a>
+    <a href="{{ url_for("about") }}">About the system</a>
+    <a href="{{ url_for("sparql") }}">SPARQL Endpoint</a>
     Vocabs by publisher:
-    <a href="{{ url_for('vocabularies', publisher_id='ga') }}">GA</a>
-    <a href="{{ url_for('vocabularies', publisher_id='ggic') }}">GGIC</a>
-    <a href="{{ url_for('vocabularies', publisher_id='nasa') }}">NASA</a>
-    <a href="{{ url_for('vocabularies', publisher_id='odm2') }}">ODM2</a>
-    <a href="{{ url_for('vocabularies', publisher_id='abs') }}">ABS</a>
+    <a href="{{ url_for("vocabularies_publisher", publisher_id="ga") }}">GA</a>
+    <a href="{{ url_for("vocabularies_publisher", publisher_id="ggic") }}">GGIC</a>
+    <a href="{{ url_for("vocabularies_publisher", publisher_id="nasa") }}">NASA</a>
+    <a href="{{ url_for("vocabularies_publisher", publisher_id="odm2") }}">ODM2</a>
+    <a href="{{ url_for("vocabularies_publisher", publisher_id="abs") }}">ABS</a>
 
   </div>
   <div id="content" style="grid-column:2;">

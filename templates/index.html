@@ -12,25 +12,25 @@
     </p>
     <p>Vocabulary sources:</p>
     <ul>
-        <li><a href="{{ url_for("vocabularies", publisher_id='ga') }}">Geoscience Australia</a></li>
-        <li><a href="{{ url_for("vocabularies", publisher_id='ggic') }}">Government Geoscience Information Committee (GGIC)</a></li>
+        <li><a href="{{ url_for("vocabularies_publisher", publisher_id='ga') }}">Geoscience Australia</a></li>
+        <li><a href="{{ url_for("vocabularies_publisher", publisher_id='ggic') }}">Government Geoscience Information Committee (GGIC)</a></li>
         <li>
-            <a href="{{ url_for("vocabularies", publisher_id='iso') }}">International Organization for Standardization (ISO)</a>
+            <a href="{{ url_for("vocabularies_publisher", publisher_id='iso') }}">International Organization for Standardization (ISO)</a>
             <ul>
                 <li>From <a href="https://committee.iso.org/home/tc211">Technical Committee 211</a>'s Geospatial-related vocabularies</li>
             </ul>
         </li>
         <li>
-            <a href="{{ url_for("vocabularies", publisher_id='nasa') }}">NASA</a>
+            <a href="{{ url_for("vocabularies_publisher", publisher_id='nasa') }}">NASA</a>
             <ul>
                 <li>From <a href="https://gcmd.nasa.gov/">Global Change Master Directory</a>'s keywords vocabulary</li>
             </ul>
         </li>
-        <li><a href="{{ url_for("vocabularies", publisher_id='odm2') }}">Observations Data Model 2 (ODM2)</a></li>
+        <li><a href="{{ url_for("vocabularies_publisher", publisher_id='odm2') }}">Observations Data Model 2 (ODM2)</a></li>
         <li>
             Research Vocabularies Australia (RVA)
             <ul>
-                <li>From the <a href="{{ url_for("vocabularies", publisher_id='abs') }}">Australian Bureau of Statistics (ABS)</a></li>
+                <li>From the <a href="{{ url_for("vocabularies_publisher", publisher_id='abs') }}">Australian Bureau of Statistics (ABS)</a></li>
             </ul>
         </li>
     </ul>
