@@ -1,0 +1,73 @@
+@app.route("/vocabularies/<string:publisher_id>/")
+def vocabularies_publisher(publisher_id):
+    publishers = {
+        "ga": "https://linked.data.gov.au/org/ga",
+        "ggic": "http://www.geoscience.gov.au",
+        "iso": "https://linked.data.gov.au/org/iso",
+        "nasa": "https://nasa.gov",
+        "odm2": "http://www.odm2.org",
+        "abs": "https://linked.data.gov.au/org/abs"
+    }
+    if publisher_id in publishers.keys():
+        page = (
+            int(request.values.get("page")) if request.values.get("page") is not None else 1
+        )
+        per_page = (
+            int(request.values.get("per_page"))
+            if request.values.get("per_page") is not None
+            else 20
+        )
+
+        # get this instance's list of vocabs
+        vocabs = []
+        q = """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            PREFIX dcterms: <http://purl.org/dc/terms/>
+
+            SELECT ?uri ?pl
+            WHERE {{
+                ?uri a skos:ConceptScheme ;
+                    skos:prefLabel ?pl ;
+                    dcterms:publisher <{}> .
+            }}
+            ORDER BY ?pl
+        """.format(publishers[publisher_id])
+
+        for r in sparql_query(
+            q,
+            config.VOCAB_SOURCES["ga"]["sparql_endpoint"],  # must specify a SPARQL endpoint if this source is to be a SPARQL source
+            config.VOCAB_SOURCES["ga"].get("sparql_username"),
+            config.VOCAB_SOURCES["ga"].get("sparql_password")
+        ):
+            vocabs.append((
+                str(url_for("vocabulary", vocab_id=r["uri"]["value"].split("/")[-1])),
+                str(r["pl"]["value"])
+            ))
+
+        start = (page - 1) * per_page
+        end = start + per_page
+        total = len(vocabs)
+        vocabs = vocabs[start:end]
+
+        descriptions = {
+            "ga": "Vocabularies created and published by Geoscience Australia",
+            "ggic": "Vocabularies published by Geoscience Australia on behalf of GGIC",
+            "iso": "Vocabularies from the International Organization for Standardization",
+            "nasa": "Vocabularies by NASA",
+            "odm2": "Vocabularies by the Observation Data Model 2 group",
+            "abs": "Vocabularies by the Australian Bureau of Statistics"
+        }
+
+        return ContainerRenderer(
+            request,
+            'https://pid.geoscience.gov.au/def/voc/',
+            'Vocabularies',
+            descriptions[publisher_id],
+            None,
+            None,
+            vocabs,
+            total
+        ).render()
+    else:
+        msg = "You selected publisher {} but you must select one of {}".format(publisher_id, ", ".join(publishers))
+        return render_vb_exception_response(msg)
