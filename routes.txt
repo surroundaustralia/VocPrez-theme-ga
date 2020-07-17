@@ -1,4 +1,7 @@
-@app.route("/vocabularies/<string:publisher_id>/")
+
+# NEW ROUTES
+
+@app.route("/vocabs/<string:publisher_id>/")
 def vocabularies_publisher(publisher_id):
     publishers = {
         "ga": "https://linked.data.gov.au/org/ga",
