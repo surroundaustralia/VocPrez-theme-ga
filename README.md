@@ -1,5 +1,5 @@
 # VocPrez-theme-ga
-A VocPrez UI theme for the Commission for Geoscience Australia.
+A VocPrez UI theme for Geoscience Australia.
 
 `apply.sh` adds these elements - templates, style files and extra API endpoints - to a VocPrez instance
 
