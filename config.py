@@ -34,9 +34,9 @@ class VocabSource:
 # Main cache (SPARQL DB) variables
 # BEGIN Instance Vars
 DEBUG = True
-SPARQL_ENDPOINT = environ.get("SPARQL_ENDPOINT", "http://localhost:7200/repositories/ggic-vocabs")
-SPARQL_USERNAME = environ.get("SPARQL_USERNAME", "")
-SPARQL_PASSWORD = environ.get("SPARQL_PASSWORD", "")
+SPARQL_ENDPOINT = "$SPARQL_ENDPOINT"
+SPARQL_USERNAME = "$SPARQL_USERNAME"
+SPARQL_PASSWORD = "$SPARQL_PASSWORD"
 SOURCE_NAME = "ga"
 # END Instance Vars
 
