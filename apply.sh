@@ -14,7 +14,4 @@ sed -i 's#$SPARQL_USERNAME#'"$SPARQL_USERNAME"'#' $VP_THEME_HOME/config_updated.
 sed -i 's#$SPARQL_PASSWORD#'"$SPARQL_PASSWORD"'#' $VP_THEME_HOME/config_updated.py
 mv $VP_THEME_HOME/config_updated.py $VP_HOME/vocprez/_config/__init__.py
 
-echo "WSGI config"
-cp $VP_THEME_HOME/app.wsgi $VP_HOME/app.wsgi
-
 echo "customisation done"
