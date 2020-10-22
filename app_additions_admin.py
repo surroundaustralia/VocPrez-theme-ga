@@ -2,14 +2,14 @@
 
 
 # ROUTE admin
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = b'$API_KEY'
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     from flask import session
     if request.form.get("password") is not None:
-        if request.form.get("password") == "vox":
+        if request.form.get("password") == "$ADMIN_PASSWORD":
             session['logged_in'] = True
             return admin()
         else:
@@ -51,8 +51,10 @@ def admin():
                 message = "VocPrez cache reloaded"
             elif request.form.get("func") == "one":
                 message = "Vocab {} (re)loaded".format(request.form.get("reload-one"))
-            else:  # all vocabs
+            elif request.form.get("func") == "all":
                 message = "All vocabs reloaded"
+            else:
+                pass
             return render_template("admin.html", vocabs=vocabs, message=message)
         else:
             return render_template("admin.html", vocabs=vocabs)
