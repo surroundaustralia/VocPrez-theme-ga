@@ -6,7 +6,7 @@ SKIN_DIR = path.join(APP_DIR, "view")
 TEMPLATES_DIR = path.join(SKIN_DIR, "templates")
 STATIC_DIR = path.join(SKIN_DIR, "style")
 LOGFILE = APP_DIR + "/flask.log"
-VOCAB_CACHE_DIR = path.join(APP_DIR, "cache")
+CACHE_FILE = path.join(APP_DIR, "cache", "DATA.p")
 VOCAB_CACHE_HOURS = (
     1  # Number of hours before cache is replaced (set to zero to always replace)
 )
@@ -40,7 +40,7 @@ SPARQL_PASSWORD = "$SPARQL_PASSWORD"
 SOURCE_NAME = "ga"
 # END Instance Vars
 
-VOCAB_SOURCES = {
+DATA_SOURCES = {
     # example SPARQL source configured using varaibles in "Instance Vars" above
     SOURCE_NAME: {
         "source": VocabSource.SPARQL,
@@ -50,9 +50,10 @@ VOCAB_SOURCES = {
     },
 }
 
-# Details for the main vocabulary list. Can be overriden in the vocabularies.html template
+# Details for the main vocabulary list. Can be overridden in the vocabularies.html template
 # BEGIN Vocabs list info
 VOCS_TITLE = "GGIC Vocabularies"
 VOCS_URI = "http://ggic.vocabs.ga.gov.au"
 VOCS_DESC = "Vocabularies managed and published by Geoscience Australia on behalf of the Government Geoscience Information Committee (GGIC)"
+ADMIN_PWD = "vox"
 # END Vocabs list info
