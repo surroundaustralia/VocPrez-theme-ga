@@ -33,8 +33,10 @@
         <h3>VocPrez</h3>
         <h4>Reload Cache</h4>
         <div>
-          <button onclick="window.location.href='{{ url_for("cache_reload") }}';">Reload</button>
-          <p><em>Once you've clicked this and it says "Cache reloaded", just go "back" in the browser to return here.</em></p>
+          <form action="{{ url_for('admin') }}" method="post">
+            <input name="func" type="hidden" value="cache" />
+            <input type="submit" value="Reload" />
+          </form>
         </div>
       </div>
     </div>

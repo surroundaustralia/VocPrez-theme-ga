@@ -46,7 +46,10 @@ def admin():
             })
 
         if request.method == "POST":
-            if request.form.get("func") == "one":
+            if request.form.get("func") == "cache":
+                cache_reload()
+                message = "VocPrez cache reloaded"
+            elif request.form.get("func") == "one":
                 message = "Vocab {} (re)loaded".format(request.form.get("reload-one"))
             else:  # all vocabs
                 message = "All vocabs reloaded"
