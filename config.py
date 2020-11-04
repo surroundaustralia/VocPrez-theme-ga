@@ -59,12 +59,12 @@ ADMIN_PWD = "vox"
 # END Vocabs list info
 
 # Admin functions
-GRAPHDB_REPO_ID = "ggic-vocabs"
-GRAPH_DB_URI = "http://localhost:7200"
+GRAPHDB_REPO_ID = ""
+GRAPH_DB_URI = ""
 GRAPHDB_USR = None
 GRAPHDB_PWD = None
-GITHUB_RAW_URI_BASE = "https://raw.githubusercontent.com/surroundaustralia/ga-vocabs/master/ggic/"
+GITHUB_RAW_URI_BASE = ""
 GITHUB_USR = None
 GITHUB_PWD = None
-GITHUB_TOKEN = 'fa590779d9892bb80e8f00af5128ea78c57bb1ab'
+GITHUB_TOKEN = ""
 # END Admin functions
