@@ -77,7 +77,7 @@ def admin():
                         if vocab[1][0]:
                             message += "<li>" + vocab[0] + ": loaded</li>"
                         else:
-                            message += "<li>" + vocab[0] + ": error: " + vocab[1][1] + "</li>"
+                            message += "<li style=\"color:red;\">" + vocab[0] + ": error: " + vocab[1][1] + "</li>"
                     message += "</ul>"
                 else:
                     message = success[1]
