@@ -4,23 +4,34 @@
     <h1>VocPrez Admin</h1>
     <div style="float:right;"><a href="{{ url_for('logout') }}">Log out</a></div>
     {% if message is not none %}
-      <h4 style="color: darkred;">{{ message }}</h4>
+      <h4 style="color: darkred;">{{ message|safe }}</h4>
     {% endif %}
     <h2>Functions</h2>
     <div style="display:grid; grid-template-columns: 50% 50%;">
       <div style="grid-column: 1;">
         <h3>Vocabs Database</h3>
         <form action="{{ url_for('admin') }}" method="post">
+          <h4>Delete One Vocab</h4>
+          <input name="func" type="hidden" value="del" />
+          <p><label for="del-one">Select the vocab to delete:</label></p>
+          <select name="del-one">
+            {% for v in del_vocabs %}
+              <option value="{{ v.uri }}">{{ v.name }}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" value="Delete One" />
+        </form>
+        <form action="{{ url_for('admin') }}" method="post">
           <h4>Load/Reload One Vocab</h4>
           <p>This list contains all the vocabs in GitHub so vocabs newly added there can be loaded into the database. This function will always reload VocPrez too so any loaded/reloaded vocabs in the database will appear.</p>
           <input name="func" type="hidden" value="one" />
-          <p><label for="reload-one">Select the vocab to reload</label></p>
+          <p><label for="reload-one">Select the vocab to load:</label></p>
           <select name="reload-one">
             {% for v in vocabs %}
               <option id="{{ v.id }}" value="{{ v.uri }}">{{ v.name }}</option>
             {% endfor %}
           </select>
-          <input type="submit" value="Reload One" />
+          <input type="submit" value="Load One" />
         </form>
         <form action="{{ url_for('admin') }}" method="post">
           <h4>Reload All Vocabs</h4>
