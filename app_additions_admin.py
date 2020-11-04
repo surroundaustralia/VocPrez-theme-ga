@@ -72,12 +72,13 @@ def admin():
             elif request.form.get("func") == "all":
                 success = reload_all_vocabs()
                 if success[0]:
-                    message = ""
+                    message = "<ul>"
                     for vocab in success[1]:
                         if vocab[1][0]:
-                            message += vocab[0] + ": loaded<br />"
+                            message += "<li>" + vocab[0] + ": loaded</li>"
                         else:
-                            message += vocab[0] + ": error: " + vocab[1][1] + "<br />"
+                            message += "<li>" + vocab[0] + ": error: " + vocab[1][1] + "</li>"
+                    message += "</ul>"
                 else:
                     message = success[1]
 
@@ -95,6 +96,8 @@ def get_vocabs_from_github():
             'Accept': 'application/vnd.github.v3+json',
             "Authorization": "token {}".format(config.GITHUB_TOKEN)}
     )
+    logging.debug("get_vocabs_from_github()")
+    logging.debug(r.status_code)
     vocabs = []
     for v in r.json():
         vocabs.append({
