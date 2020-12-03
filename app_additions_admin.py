@@ -90,21 +90,29 @@ def admin():
 
 
 def get_vocabs_from_github():
-    r = requests.get(
-        "https://api.github.com/repos/surroundaustralia/ga-vocabs/contents/ggic",
-        headers={
-            'Accept': 'application/vnd.github.v3+json',
-            "Authorization": "token {}".format(config.GITHUB_TOKEN)}
-    )
-    logging.debug("get_vocabs_from_github()")
-    logging.debug(r.status_code)
+    def _get_contents(uri):
+        r = requests.get(
+            uri,
+            headers={
+                'Accept': 'application/vnd.github.v3+json',
+                "Authorization": "token 88d1cbc9d261c14e82b33f0a640ba67188fc9ff4"
+            }
+        )
+        return r.json()
+
+    folders = _get_contents(config.GITHUB_API_URI)
+
     vocabs = []
-    for v in r.json():
-        vocabs.append({
-            "name": v["name"].replace(".ttl", ""),
-            "id": v["name"],
-            "uri": v["download_url"],
-        })
+    for folder in folders:
+        if folder["name"] in config.GITHUB_VOCAB_FOLDERS.split(","):
+            vs = _get_contents(folder["url"].replace("?ref=master", ""))
+            for v in vs:
+                if v["name"].endswith(".ttl"):
+                    vocabs.append({
+                        "name": v["name"].replace(".ttl", ""),
+                        "id": v["name"],
+                        "uri": v["download_url"],
+                    })
 
     return vocabs
 
