@@ -95,13 +95,13 @@ def get_vocabs_from_github():
             uri,
             headers={
                 'Accept': 'application/vnd.github.v3+json',
-                "Authorization": "token 88d1cbc9d261c14e82b33f0a640ba67188fc9ff4"
+                "Authorization": "token {}".format(config.GITHUB_TOKEN)
             }
         )
         return r.json()
 
     folders = _get_contents(config.GITHUB_API_URI)
-    if folders.get("message") is not None:
+    if type(folders) == dict:
         return []
 
     vocabs = []
