@@ -101,6 +101,8 @@ def get_vocabs_from_github():
         return r.json()
 
     folders = _get_contents(config.GITHUB_API_URI)
+    if folders.get("message") is not None:
+        return []
 
     vocabs = []
     for folder in folders:
