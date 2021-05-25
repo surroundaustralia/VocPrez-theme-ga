@@ -1,16 +1,14 @@
 eval $(cat .env | tr -d '\r')
 
-echo "Styles"
-echo "copying $VP_THEME_HOME/style content to $VP_HOME/vocprez/view/style"
-cp $VP_THEME_HOME/style/* $VP_HOME/vocprez/view/style
+echo "prepare a deployment folder"
+mkdir $VP_HOME/deploy
+cp -r $VP_HOME/vocprez/* $VP_HOME/deploy
 
-echo "Templates"
-echo "copying $VP_THEME_HOME/templates content to $VP_HOME/vocprez/view/templates"
-cp $VP_THEME_HOME/templates/* $VP_HOME/vocprez/view/templates
+echo "copy GGIC style and templates to VocPrez deploy folder"
+cp style/* $VP_HOME/deploy/view/style
+cp templates/* $VP_HOME/deploy/view/templates
 
-echo "Config"
-echo "creating VocPrez config with $VP_THEME_HOME/config.py"
-echo "Alter config.py to include variables"
+echo "set the VocPrez config"
 sed 's#$SPARQL_ENDPOINT#'"$SPARQL_ENDPOINT"'#' $VP_THEME_HOME/config.py > $VP_THEME_HOME/config_updated.py
 if [ -z "$SPARQL_USERNAME" ]
 then
@@ -25,6 +23,12 @@ else
       sed -i 's#$SPARQL_PASSWORD#'\"$SPARQL_PASSWORD\"'#' $VP_THEME_HOME/config_updated.py
 fi
 sed -i 's#$SYSTEM_BASE_URI#'"$SYSTEM_BASE_URI"'#' $VP_THEME_HOME/config_updated.py
-mv $VP_THEME_HOME/config_updated.py $VP_HOME/vocprez/_config/__init__.py
+mv $VP_THEME_HOME/config_updated.py $VP_HOME/deploy/_config/__init__.py
 
-echo "customisation done"
+echo "run Dockerfile there"
+docker build -t vocprez-ga -f $VP_HOME/Dockerfile $VP_HOME
+
+echo "clean-up"
+rm -r $VP_HOME/deploy
+
+echo "complete"

@@ -1,43 +1,52 @@
 {% extends "page.html" %}
 
 {% block content %}
-    <h1>GA Vocabularies System</h1>
-    <p>
-        Welcome to GA's public vocabulary system. This tool is an instance of <a href="https://github.com/RDFlib/VocPrez">VocPrez</a>, a read-only web delivery system for Simple Knowledge Organization System (SKOS)-formulated RDF vocabularies.
-    </p>
-    <h2>Vocabularies</h2>
-    <p>
-        This system will soon publish vocabularies from multiple sources, not just GA itself. These multi-source vocabs will all be presented here to provide a single endpoint for all the vocabularies that GA staff use and that GA recommends others to use.
-    </p>
-    <p>Current vocabulary sources:</p>
-    <ul>
-        <li><a href="{{ url_for('vocabularies') }}">Government Geoscience Information Committee (GGIC)</a></li>
-    </ul>
-    <h3>Vocabulary Modelling</h3>
-    <p>
-        Geoscience Australia conceives of <em>vocabularies</em> as being synonymous with SKOS' <code>skos:ConceptScheme</code> class, so each GA vocab is an instance of <code>skos:ConceptScheme</code>. Not all users of SKOS make this conception.
-    </p>
-    <h2>Tools</h2>
-    <h3>Profiles</h3>
-    <p>
-        All the content of all vocabs can be accessed individually in web page (HTML) and machine-readable forms. Each list fo vocabs, vocabulary and Concept web page contains a link to the listing of all profiles and formats available for that object. Look for the <strong><em>Alternate Profiles</em></strong> hyperlink.</p>
-    <h3>Services</h3>
-    <p>
-        All of the vocabularies in this system are accessible via a single <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL endpoint</a>:
-    </p>
-    <ul>
-        <li><a href="{{ url_for('sparql') }}">SPARQL Endpoint</a></li>
-    </ul>
+<h1>GA Vocabularies System</h1>
+<p>
+    Welcome to GA's public vocabulary system. This tool is an instance of <a
+        href="https://github.com/RDFlib/VocPrez">VocPrez</a>, a read-only web delivery system for Simple Knowledge
+    Organization System (SKOS)-formulated RDF vocabularies.
+</p>
+<h2>Vocabularies</h2>
+<p>
+    This system will soon publish vocabularies from multiple sources, not just GA itself. These multi-source vocabs will
+    all be presented here to provide a single endpoint for all the vocabularies that GA staff use and that GA recommends
+    others to use.
+</p>
+<p>Current vocabulary sources:</p>
+<ul>
+    <li><a href="{{ url_for('vocabularies') }}">Government Geoscience Information Committee (GGIC)</a></li>
+</ul>
+<h3>Vocabulary Modelling</h3>
+<p>
+    Geoscience Australia conceives of <em>vocabularies</em> as being synonymous with SKOS'
+    <code>skos:ConceptScheme</code> class, so each GA vocab is an instance of <code>skos:ConceptScheme</code>. Not all
+    users of SKOS make this conception.
+</p>
+<h2>Tools</h2>
+<h3>Profiles</h3>
+<p>
+    All the content of all vocabs can be accessed individually in web page (HTML) and machine-readable forms. Each list
+    fo vocabs, vocabulary and Concept web page contains a link to the listing of all profiles and formats available for
+    that object. Look for the <strong><em>Alternate Profiles</em></strong> hyperlink.</p>
+<h3>Services</h3>
+<p>
+    All of the vocabularies in this system are accessible via a single <a
+        href="https://en.wikipedia.org/wiki/SPARQL">SPARQL endpoint</a>:
+</p>
+<ul>
+    <li><a href="{{ url_for('sparql') }}">SPARQL Endpoint</a></li>
+</ul>
 
-    <h2>Software</h2>
-    <p>
-        The code for this vocabulary publication system - VocPrez - is available online:
-    </p>
-    <ul>
-        <li><a href="https://github.com/RDFLib/VocPrez/">VocPrez @ RDFlib on GitHub</a></li>
-    </ul>
-    <p>
-        Note that this particular instance of VocPrez contains some configuration and styling that isn't present in that main VocPrez repository.
-    </p>
-
+<h2>Software</h2>
+<p>
+    The code for this vocabulary publication system - VocPrez - is available online:
+</p>
+<ul>
+    <li><a href="https://github.com/RDFLib/VocPrez/">VocPrez @ RDFlib on GitHub</a></li>
+</ul>
+<p>
+    Note that this particular instance of VocPrez contains some configuration and styling that isn't present in that
+    main VocPrez repository.
+</p>
 {% endblock %}

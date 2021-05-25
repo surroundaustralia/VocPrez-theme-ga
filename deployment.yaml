@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ga-vocprez-deployment
+  labels:
+    app: ga
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ga
+  template:
+    metadata:
+      labels:
+        app: ga
+    spec:
+      containers:
+      - name: ga-vocprez
+        image: 680471986828.dkr.ecr.ap-southeast-2.amazonaws.com/ga/vocprez:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ga-vocprez-service
+spec:
+  selector:
+    app: ga
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
