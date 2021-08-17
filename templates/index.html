@@ -7,46 +7,30 @@
         href="https://github.com/RDFlib/VocPrez">VocPrez</a>, a read-only web delivery system for Simple Knowledge
     Organization System (SKOS)-formulated RDF vocabularies.
 </p>
-<h2>Vocabularies</h2>
 <p>
-    This system will soon publish vocabularies from multiple sources, not just GA itself. These multi-source vocabs will
-    all be presented here to provide a single endpoint for all the vocabularies that GA staff use and that GA recommends
-    others to use.
+    This is the static register (index) of GA's vocabularies. Its purpose is to present the static URIs to each of GA's 
+    vocabs. This is particularly useful for machines that wish to automatically index our vocabularies, rather than 
+    humans who can search for them manually.
 </p>
-<p>Current vocabulary sources:</p>
-<ul>
-    <li><a href="{{ url_for('vocabularies') }}">Government Geoscience Information Committee (GGIC)</a></li>
-</ul>
-<h3>Vocabulary Modelling</h3>
+<h2>About the Vocabularies</h2>
 <p>
-    Geoscience Australia conceives of <em>vocabularies</em> as being synonymous with SKOS'
-    <code>skos:ConceptScheme</code> class, so each GA vocab is an instance of <code>skos:ConceptScheme</code>. Not all
-    users of SKOS make this conception.
+    These vocabularies are <a href="http://www.ga.gov.au/">Geoscience Australia</a>'s vocabularies for internal and 
+    external use. Most are simple code lists for data types, science concepts and other related things. Some are a 
+    little more complex. All are formulated according to the <a href="https://www.w3.org/2001/sw/wiki/SKOS">Simple 
+    Knowledge Organization System (SKOS) W3C web standard</a> which means they are structured in a 
+    machine-readable way.
 </p>
-<h2>Tools</h2>
-<h3>Profiles</h3>
 <p>
-    All the content of all vocabs can be accessed individually in web page (HTML) and machine-readable forms. Each list
-    fo vocabs, vocabulary and Concept web page contains a link to the listing of all profiles and formats available for
-    that object. Look for the <strong><em>Alternate Profiles</em></strong> hyperlink.</p>
-<h3>Services</h3>
+    They are published via <a href="https://github.com/RDFLib/VocPrez/">VocPrez</a> which enables human readability 
+    of the vocabularies, via web pages, and also machine readability via a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">
+    RESTful API</a> and also a <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL service</a>.
+</p>
 <p>
-    All of the vocabularies in this system are accessible via a single <a
-        href="https://en.wikipedia.org/wiki/SPARQL">SPARQL endpoint</a>:
+    These vocabularies are also all published for general discovery in the <a href="http://www.ands.org.au/">Australian National Data Service (ANDS)</a>'s 
+    <a href="http://vocabs.ardc.org.au">Research Vocabularies Australia (RVA) Portal</a>:
 </p>
 <ul>
-    <li><a href="{{ url_for('sparql') }}">SPARQL Endpoint</a></li>
+    <li><a href="https://vocabs.ardc.edu.au/search/#!/?activeTab=vocabularies&pp=15&q=&v_publisher=Geoscience%20Australia&v_p=1&r_p=1&r_collapse_expand=vocabularyIdIri">GA's vocabs in the RVA portal</a></li>
 </ul>
 
-<h2>Software</h2>
-<p>
-    The code for this vocabulary publication system - VocPrez - is available online:
-</p>
-<ul>
-    <li><a href="https://github.com/RDFLib/VocPrez/">VocPrez @ RDFlib on GitHub</a></li>
-</ul>
-<p>
-    Note that this particular instance of VocPrez contains some configuration and styling that isn't present in that
-    main VocPrez repository.
-</p>
 {% endblock %}
