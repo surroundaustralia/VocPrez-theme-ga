@@ -50,5 +50,5 @@ DATA_SOURCES = {
 # BEGIN Vocabs list info
 VOCS_TITLE = "GA Vocabularies"
 VOCS_URI = "http://ga.vocabs.ga.gov.au"
-VOCS_DESC = "Vocabularies managed and published by Geoscience Australia on behalf of the Government Geoscience Information Committee (GGIC)"
+VOCS_DESC = "Vocabularies managed and published by Geoscience Australia."
 # END Vocabs list info
