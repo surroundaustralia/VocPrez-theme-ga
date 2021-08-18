@@ -98,6 +98,7 @@ header > hr {
     max-width: var(--max-page-width);
     margin: 0 auto;
     display: flex;
+    padding: 0 12px;
 }
 
 #header-top-content {
@@ -144,6 +145,7 @@ header > hr {
     width: 100%;
     max-width: var(--max-page-width);
     margin: 20px auto;
+    padding: 0 12px;
 }
 
 #header-bottom > img {
@@ -177,6 +179,7 @@ header > hr {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0 12px;
 }
 
 #band {
@@ -403,7 +406,7 @@ footer {
     width: 100%;
     max-width: var(--max-page-width);
     margin: 0 auto;
-    padding: 16px 0;
+    padding: 16px 12px;
 }
 
 .footer-content-col {
@@ -476,7 +479,7 @@ footer > hr {
     width: 100%;
     max-width: var(--max-page-width);
     margin: 0 auto 20px auto;
-    padding: 16px 0;
+    padding: 16px 12px;
 }
 
 #footer-bottom-links {
