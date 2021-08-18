@@ -1,5 +1,11 @@
-<a href="{{ url_for('index') }}">System Home</a>
-<a href="{{ url_for('vocabularies') }}">GA Vocabularies</a>
-<a href="{{ url_for('search') }}">Search</a>
-<a href="{{ url_for('sparql') }}">SPARQL</a>
-<a href="{{ url_for('about') }}">About the System</a>
+<div id="sidenav-container">
+  <a id="sidenav-title" class="h3" href="{{ url_for('index') }}">Vocabulary Register</a>
+  <nav id="sidenav">
+    <a class="sidenav-item {% if active_page == 'home' %}active{% endif %}" href="{{ url_for('index') }}">System Home</a>
+    <a class="sidenav-item {% if active_page == 'vocab' %}active{% endif %}" href="{{ url_for('vocabularies') }}">Vocabularies</a>
+    <a class="sidenav-item {% if active_page == 'search' %}active{% endif %}" href="{{ url_for('search') }}">Search</a>
+    <a class="sidenav-item {% if active_page == 'sparql' %}active{% endif %}" href="{{ url_for('sparql') }}">SPARQL</a>
+    <a class="sidenav-item {% if active_page == 'about' %}active{% endif %}" href="{{ url_for('about') }}">About the System</a>
+    <a class="sidenav-item" target="_blank" href="https://vocexcel.surroundaustralia.com/">VocExcel <i class="far fa-external-link"></i></a>
+  </nav>
+</div>

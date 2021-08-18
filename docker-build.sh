@@ -4,7 +4,7 @@ echo "prepare a deployment folder"
 mkdir $VP_HOME/deploy
 cp -r $VP_HOME/vocprez/* $VP_HOME/deploy
 
-echo "copy GGIC style and templates to VocPrez deploy folder"
+echo "copy GA style and templates to VocPrez deploy folder"
 cp style/* $VP_HOME/deploy/view/style
 cp templates/* $VP_HOME/deploy/view/templates
 
