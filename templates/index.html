@@ -3,74 +3,69 @@
 {% set active_page = "home" %}
 
 {% block breadcrumbs %}
-  <ol id="breadcrumbs">
-    <li>
-      <a href="https://www.ga.gov.au/home">Home</a>
-    </li>
-    <li>
-      <a href="{{ url_for('index') }}">Vocabulary Register</a>
-    </li>
-    <li>
-      <a href="{{ url_for('index') }}">System Home</a>
-    </li>
-  </ol>
+<ol id="breadcrumbs">
+  <li>
+    <a href="https://www.ga.gov.au/home">Home</a>
+  </li>
+  <li>
+    <a href="{{ url_for('index') }}">Vocabulary Register</a>
+  </li>
+  <li>
+    <a href="{{ url_for('index') }}">System Home</a>
+  </li>
+</ol>
 {% endblock %}
 
 {% block content %}
-<div id="sidebar">
-  {% include 'nav.html' %}
-  {% include 'alt_link.html' %}
-  <div id="vocprez">
-    made by <a href="http://github.com/rdflib/VocPrez">VocPrez</a>&nbsp;
-    <a id="versionlink" href="https://github.com/RDFLib/VocPrez/releases/tag/{{ utils.version() }}">
-      {{ utils.version() }}
-    </a>
+<h1 id="page-title">GA Vocabularies System</h1>
+<div id="content">
+  <div id="content-left">
+    <p>
+      Welcome to GA's public vocabulary system. This tool is an instance of <a
+        href="https://github.com/RDFlib/VocPrez">VocPrez</a>, a read-only web delivery system for Simple Knowledge
+      Organization System (SKOS)-formulated RDF vocabularies.
+    </p>
+    <p>
+      This is the static register (index) of GA's vocabularies. Its purpose is to present the static URIs to each of
+      GA's
+      vocabs. This is particularly useful for machines that wish to automatically index our vocabularies, rather than
+      humans who can search for them manually.
+    </p>
+    <h2>About the Vocabularies</h2>
+    <p>
+      These vocabularies are <a href="http://www.ga.gov.au/">Geoscience Australia</a>'s vocabularies for internal and
+      external use. Most are simple code lists for data types, science concepts and other related things. Some are a
+      little more complex. All are formulated according to the <a href="https://www.w3.org/2001/sw/wiki/SKOS">Simple
+        Knowledge Organization System (SKOS) W3C web standard</a> which means they are structured in a
+      machine-readable way.
+    </p>
+    <p>
+      They are published via <a href="https://github.com/RDFLib/VocPrez/">VocPrez</a> which enables human readability
+      of the vocabularies, via web pages, and also machine readability via a <a
+        href="https://en.wikipedia.org/wiki/Representational_state_transfer">
+        RESTful API</a> and also a <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL service</a>.
+    </p>
+    <p>
+      These vocabularies are also all published for general discovery in the <a
+        href="http://www.ands.org.au/">Australian
+        National Data Service (ANDS)</a>'s
+      <a href="http://vocabs.ardc.org.au">Research Vocabularies Australia (RVA) Portal</a>:
+    </p>
+    <ul>
+      <li><a
+          href="https://vocabs.ardc.edu.au/search/#!/?activeTab=vocabularies&pp=15&q=&v_publisher=Geoscience%20Australia&v_p=1&r_p=1&r_collapse_expand=vocabularyIdIri">GA's
+          vocabs in the RVA portal</a></li>
+    </ul>
+    <h2>Creating Vocabularies</h2>
+    <p>
+      There are many potential ways for vocabularies to be created. One is to use an Excel template-based tool
+      known as <a href="https://github.com/surroundaustralia/VocExcel">VocExcel</a>. That tool can be used on
+      desktops and also <a href="https://vocexcel.surroundaustralia.com/">via an online web form</a>, which is
+      also linked to in the menu to the left.
+    </p>
+  </div>
+  <div id="content-right">
+    {% include 'alt_link.html' %}
   </div>
 </div>
-<div id="content">
-  <h1 id="page-title">GA Vocabularies System</h1>
-  <p>
-    Welcome to GA's public vocabulary system. This tool is an instance of <a
-      href="https://github.com/RDFlib/VocPrez">VocPrez</a>, a read-only web delivery system for Simple Knowledge
-    Organization System (SKOS)-formulated RDF vocabularies.
-  </p>
-  <p>
-    This is the static register (index) of GA's vocabularies. Its purpose is to present the static URIs to each of
-    GA's
-    vocabs. This is particularly useful for machines that wish to automatically index our vocabularies, rather than
-    humans who can search for them manually.
-  </p>
-  <h2>About the Vocabularies</h2>
-  <p>
-    These vocabularies are <a href="http://www.ga.gov.au/">Geoscience Australia</a>'s vocabularies for internal and
-    external use. Most are simple code lists for data types, science concepts and other related things. Some are a
-    little more complex. All are formulated according to the <a href="https://www.w3.org/2001/sw/wiki/SKOS">Simple
-      Knowledge Organization System (SKOS) W3C web standard</a> which means they are structured in a
-    machine-readable way.
-  </p>
-  <p>
-    They are published via <a href="https://github.com/RDFLib/VocPrez/">VocPrez</a> which enables human readability
-    of the vocabularies, via web pages, and also machine readability via a <a
-      href="https://en.wikipedia.org/wiki/Representational_state_transfer">
-      RESTful API</a> and also a <a href="https://en.wikipedia.org/wiki/SPARQL">SPARQL service</a>.
-  </p>
-  <p>
-    These vocabularies are also all published for general discovery in the <a href="http://www.ands.org.au/">Australian
-      National Data Service (ANDS)</a>'s
-    <a href="http://vocabs.ardc.org.au">Research Vocabularies Australia (RVA) Portal</a>:
-  </p>
-  <ul>
-    <li><a
-        href="https://vocabs.ardc.edu.au/search/#!/?activeTab=vocabularies&pp=15&q=&v_publisher=Geoscience%20Australia&v_p=1&r_p=1&r_collapse_expand=vocabularyIdIri">GA's
-        vocabs in the RVA portal</a></li>
-  </ul>
-  <h2>Creating Vocabularies</h2>
-  <p>
-    There are many potential ways for vocabularies to be created. One is to use an Excel template-based tool 
-    known as <a href="https://github.com/surroundaustralia/VocExcel">VocExcel</a>. That tool can be used on 
-    desktops and also <a href="https://vocexcel.surroundaustralia.com/">via an online web form</a>, which is 
-    also linked to in the menu to the left.
-  </p>
-</div>
-
 {% endblock %}
