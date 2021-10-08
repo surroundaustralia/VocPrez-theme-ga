@@ -70,19 +70,22 @@
           <td>{{ concept.definition|safe }}</td>
         </tr>
         {% if concept.related_instances is not none %}
-          {% for prop in concept.related_instances %}
+          {% for k, v in concept.related_instances.items() %}
             <tr>
-              <th><span class="tooltip">{{ prop.label }}<span class="tooltiptext"><a href="{{ prop.uri }}">{{ prop.uri.split('#')[-1].split('/')[-1] }}</a></span></span></th>
+              <th><span class="tooltip">{{ v[0].label }}<span class="tooltiptext"><a href="{{ v[0].uri }}">{{ v[0].uri.split('#')[-1].split('/')[-1] }}</a></span></span></th>
               <td>
-                {% if prop.value.startswith('http') %}
-                  {% if prop.value_label is not none %}
-                  <a href="{{ utils.get_content_uri(prop.value) }}">{{ prop.value_label }}</a>
-                  {% else %}
-                  <a href="{{ prop.value }}">{{ prop.value }}</a>
-                  {% endif %}
-                {% else %}
-                  {{ prop.value }}
-                {% endif %}
+                {% for prop in v %}
+                    {% if prop.value.startswith('http') %}
+                        {% if prop.value_label is not none %}
+                        <a href="{{ utils.get_content_uri(prop.value) }}">{{ prop.value_label }}</a>
+                        {% else %}
+                        <a href="{{ prop.value }}">{{ prop.value }}</a>
+                        {% endif %}
+                    {% else %}
+                        {{ prop.value }}
+                    {% endif %}
+                    <br/>
+                {% endfor %}
               </td>
             </tr>
           {% endfor %}

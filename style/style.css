@@ -10,10 +10,8 @@
     --border-color: #d8d8d8;
     --table-row-color: #efefef;
     --header-hr-color: #eeeeee;
-
     /* sizing */
     --max-page-width: 990px;
-
     /* fonts */
     --heading-font: "Helvetica Neue", Helvetica, sans-serif;
     --body-font: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -82,6 +80,7 @@ a, a:hover {
 }
 
 /* header */
+
 header {
     display: flex;
     flex-direction: column;
@@ -192,6 +191,7 @@ img#ga-logo {
 }
 
 /* breadcrumbs */
+
 ol#breadcrumbs {
     font-size: 11px;
     list-style: none;
@@ -208,6 +208,7 @@ ol#breadcrumbs {
 }
 
 /* sidebar */
+
 #sidebar {
     min-width: 25%;
     display: flex;
@@ -271,6 +272,7 @@ ol#breadcrumbs {
 }
 
 /* main content */
+
 #content-container {
     display: flex;
     flex-direction: row;
@@ -319,6 +321,7 @@ ol#breadcrumbs {
 }
 
 /* tables */
+
 table, th, td {
     border: none;
 }
@@ -355,7 +358,16 @@ table.collection ul {
     padding-left: 10px;
 }
 
+table ul:not(.nested.active) {
+    padding-left: 20px;
+}
+
+table .caret {
+    margin-left: -14px !important;
+}
+
 /* tooltips */
+
 .tooltip:hover {
     cursor: help;
 }
@@ -412,11 +424,13 @@ label {
 }
 
 /* fixes result table going too wide on window resize */
+
 #yasgui .grip-container {
     width: unset !important;
 }
 
 /* footer */
+
 footer {
     background-color: var(--footer-color);
     color: white;
